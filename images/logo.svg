@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5d8f"/>
+      <stop offset=".55" stop-color="#ff8c42"/>
+      <stop offset="1" stop-color="#ffc93c"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#g)"/>
+  <!-- sun with smile -->
+  <circle cx="36" cy="34" r="14" fill="#fff3c4"/>
+  <circle cx="36" cy="34" r="10" fill="#ffc93c"/>
+  <circle cx="32.5" cy="32" r="1.7" fill="#7a4a00"/>
+  <circle cx="39.5" cy="32" r="1.7" fill="#7a4a00"/>
+  <path d="M32 37 q4 4 8 0" stroke="#7a4a00" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <!-- balloon -->
+  <ellipse cx="96" cy="32" rx="10" ry="12" fill="#ffffff" opacity=".95"/>
+  <ellipse cx="93" cy="28" rx="3" ry="4.5" fill="#ffd6e3" opacity=".9"/>
+  <path d="M96 44 l-3 5 3 0 3 0 Z" fill="#fff"/>
+  <path d="M96 49 q-3 9 3 17" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- sea -->
+  <path d="M4 96 q16 -10 32 0 t32 0 t32 0 t32 0 V124 H4 Z" fill="#4fc3f7"/>
+  <path d="M4 104 q16 -8 32 0 t32 0 t32 0 t32 0 V124 H4 Z" fill="#3b82f6" opacity=".45"/>
+  <!-- island -->
+  <ellipse cx="64" cy="98" rx="30" ry="10" fill="#ffe3a3"/>
+  <!-- palm trunk -->
+  <rect x="60" y="58" width="8" height="38" rx="4" fill="#8a5a2b" transform="rotate(8 64 77)"/>
+  <!-- fronds -->
+  <ellipse cx="50" cy="56" rx="17" ry="7" fill="#22c55e" transform="rotate(-24 50 56)"/>
+  <ellipse cx="79" cy="56" rx="17" ry="7" fill="#16a34a" transform="rotate(24 79 56)"/>
+  <ellipse cx="64" cy="47" rx="16" ry="7" fill="#4ade80"/>
+  <!-- coconuts -->
+  <circle cx="59" cy="62" r="4" fill="#6b4226"/>
+  <circle cx="68" cy="62" r="4" fill="#6b4226"/>
+  <!-- sparkles -->
+  <circle cx="22" cy="72" r="2.6" fill="#fff"/>
+  <path d="M104 66 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 Z" fill="#fff"/>
+</svg>

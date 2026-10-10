@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جزيرة الأطفال | متجر ألعاب الأطفال في القصيم</title>
+<link rel="icon" type="image/svg+xml" href="images/logo.svg">
+<meta name="description" content="جزيرة الأطفال - متجر ألعاب الأطفال في القصيم، بريدة. ألعاب تعليمية وترفيهية لجميع الأعمار مع توصيل سريع وطلب عبر واتساب.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== لتغيير رقم الواتساب: ابحثي عن WHATSAPP_NUMBER في آخر الصفحة داخل وسم script ===== */
+:root{
+  --pink:#ff5d8f;
+  --pink-dark:#e8437a;
+  --yellow:#ffc93c;
+  --orange:#ff8c42;
+  --sky:#4fc3f7;
+  --blue:#3b82f6;
+  --purple:#8b5cf6;
+  --green:#22c55e;
+  --green-dark:#16a34a;
+  --bg:#fff9f0;
+  --card:#ffffff;
+  --ink:#2d2a32;
+  --muted:#7a7686;
+  --radius:22px;
+  --shadow:0 10px 30px rgba(255,93,143,.14);
+  --shadow2:0 8px 24px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Cairo','Tajawal',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+/* خلفية مرحة */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(circle at 10% 10%, #ffe3ee 0 120px, transparent 121px),
+    radial-gradient(circle at 90% 15%, #fff3c4 0 140px, transparent 141px),
+    radial-gradient(circle at 15% 85%, #dcf5ff 0 150px, transparent 151px),
+    radial-gradient(circle at 85% 80%, #e9e2ff 0 130px, transparent 131px),
+    var(--bg);
+}
+.bubbles{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bubbles span{position:absolute;bottom:-60px;border-radius:50%;opacity:.35;animation:floatUp linear infinite}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(20deg)}}
+
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+.container{width:min(1150px,92%);margin-inline:auto}
+
+/* ===== الهيدر ===== */
+.topbar{
+  background:linear-gradient(90deg,var(--pink),var(--orange),var(--yellow));
+  color:#fff;font-weight:700;font-size:.9rem;text-align:center;
+  padding:.5rem 1rem;
+}
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(12px);
+  border-bottom:3px dashed #ffd6e3;
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 0}
+.logo{display:flex;align-items:center;gap:.7rem;font-weight:900;font-size:1.4rem}
+.logo-mark{
+  width:54px;height:54px;border-radius:18px;display:grid;place-items:center;overflow:hidden;
+  background:#fff;box-shadow:var(--shadow);transform:rotate(-6deg);border:2px solid #ffd6e3;
+}
+.logo-mark img{width:100%;height:100%;object-fit:cover}
+.logo small{display:block;font-size:.78rem;color:var(--muted);font-weight:700}
+.links{display:flex;gap:1.2rem;font-weight:800}
+.links a{padding:.4rem .8rem;border-radius:999px}
+.links a:hover{background:#fff0f5;color:var(--pink-dark)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  border:none;cursor:pointer;font-family:inherit;font-weight:800;
+  padding:.8rem 1.4rem;border-radius:999px;transition:.2s;font-size:1rem;
+}
+.btn-whatsapp{background:#25D366;color:#fff;box-shadow:0 8px 20px rgba(37,211,102,.35)}
+.btn-whatsapp:hover{background:#1eb85a;transform:translateY(-2px)}
+.btn-pink{background:linear-gradient(135deg,var(--pink),var(--orange));color:#fff;box-shadow:var(--shadow)}
+.btn-pink:hover{transform:translateY(-2px) scale(1.02)}
+.btn-yellow{background:var(--yellow);color:#4a2c00}
+.btn-outline{background:#fff;border:2px solid #ffd0e0;color:var(--pink-dark)}
+.btn-small{padding:.55rem 1rem;font-size:.9rem}
+.cart-btn{position:relative;background:#fff;border:2px solid #eee;border-radius:999px;width:48px;height:48px;font-size:1.4rem;cursor:pointer}
+.cart-count{position:absolute;top:-8px;left:-6px;background:var(--pink);color:#fff;font-size:.75rem;font-weight:900;min-width:24px;height:24px;border-radius:999px;display:grid;place-items:center;padding:0 6px}
+.menu-btn{display:none;background:#fff;border:2px solid #eee;border-radius:12px;font-size:1.4rem;width:48px;height:48px;cursor:pointer}
+.mobile-menu{display:none;background:#fff;border-top:2px dashed #ffd6e3;padding:1rem 5%}
+.mobile-menu a{display:block;padding:.7rem;font-weight:800;border-radius:12px}
+.mobile-menu a:hover{background:#fff0f5}
+
+/* ===== البطل ===== */
+.hero{padding:2.5rem 0 1rem;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center}
+.badge-pill{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:2px solid #ffe1ec;color:var(--pink-dark);font-weight:800;border-radius:999px;padding:.4rem .9rem;font-size:.9rem;box-shadow:var(--shadow2)}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:900;line-height:1.3;margin:1rem 0 .5rem}
+.hero h1 .hl1{color:var(--pink)} .hero h1 .hl2{color:var(--orange)} .hero h1 .hl3{background:var(--yellow);padding:0 .5rem;border-radius:12px;transform:rotate(-2deg);display:inline-block}
+.hero p{color:#5b5666;font-size:1.1rem;max-width:520px}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.3rem}
+.hero-stats{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.3rem}
+.stat{background:#fff;border-radius:18px;padding:.7rem 1.1rem;box-shadow:var(--shadow2);text-align:center;min-width:120px;border-bottom:4px solid var(--yellow)}
+.stat:nth-child(2){border-color:var(--sky)} .stat:nth-child(3){border-color:var(--green)}
+.stat b{font-size:1.2rem;display:block}
+.stat span{font-size:.85rem;color:var(--muted)}
+.hero-art{position:relative;background:#fff;border-radius:32px;padding:2rem;box-shadow:var(--shadow);border:4px solid #fff;overflow:hidden;text-align:center}
+.hero-art::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#fff0f5,#fff8e1,#e8f9ff,#f1eaff)}
+.hero-art-inner{position:relative}
+.toy-row{font-size:3.2rem;letter-spacing:.3rem;animation:bounce 2.5s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.island{font-size:6rem;line-height:1;margin:.5rem 0;filter:drop-shadow(0 12px 12px rgba(0,0,0,.15))}
+.hero-card{background:#fff;border-radius:18px;padding:.9rem 1rem;box-shadow:var(--shadow2);display:flex;align-items:center;gap:.8rem;margin-top:1rem;text-align:right}
+.hero-card .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:1.5rem;background:#e8fbef}
+.marquee{background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap;padding:.6rem 0;margin:1.5rem 0 0;font-weight:800}
+.marquee div{display:inline-block;animation:slide 22s linear infinite}
+@keyframes slide{to{transform:translateX(50%)}}
+
+/* ===== الأقسام العامة ===== */
+section{padding:2.8rem 0}
+.sec-head{text-align:center;margin-bottom:1.6rem}
+.sec-head h2{font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:900}
+.sec-head h2::after{content:"";display:block;width:90px;height:8px;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--sky));border-radius:999px;margin:.5rem auto 0}
+.sec-head p{color:var(--muted);max-width:600px;margin:.5rem auto 0}
+
+/* المميزات */
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.feature{background:var(--card);border-radius:var(--radius);padding:1.3rem 1rem;text-align:center;box-shadow:var(--shadow2);border-top:6px solid var(--pink)}
+.feature:nth-child(2){border-color:var(--yellow)} .feature:nth-child(3){border-color:var(--sky)} .feature:nth-child(4){border-color:var(--green)}
+.feature .ic{font-size:2.2rem}
+.feature h3{font-size:1.05rem;margin:.4rem 0}
+.feature p{font-size:.9rem;color:var(--muted)}
+
+/* الفلاتر */
+.filters{background:#fff;border-radius:24px;padding:1.2rem;box-shadow:var(--shadow2);margin-bottom:1.4rem;border:2px solid #fff0f5}
+.search-row{display:flex;gap:.7rem;flex-wrap:wrap}
+.search-box{flex:1;min-width:220px;display:flex;align-items:center;gap:.5rem;background:#fff7fa;border:2px solid #ffdbe8;border-radius:999px;padding:.6rem 1rem}
+.search-box input{border:none;outline:none;background:transparent;font-family:inherit;font-size:1rem;width:100%}
+select{font-family:inherit;font-weight:700;border:2px solid #e9e4ff;background:#f6f3ff;border-radius:999px;padding:.6rem 1rem;cursor:pointer}
+.age-tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+.age-tab{border:2px solid #eee;background:#fff;border-radius:999px;padding:.5rem 1.1rem;font-weight:800;cursor:pointer;font-family:inherit;transition:.2s}
+.age-tab.active,.age-tab:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.age-tab[data-age="0-2"].active{background:var(--sky);border-color:var(--sky)}
+.age-tab[data-age="3-5"].active{background:var(--pink);border-color:var(--pink)}
+.age-tab[data-age="6-8"].active{background:var(--orange);border-color:var(--orange)}
+.age-tab[data-age="9+"].active{background:var(--purple);border-color:var(--purple)}
+
+/* شبكة الألعاب */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:var(--shadow2);transition:.25s;border:2px solid #fff;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.card-img{height:190px;position:relative;overflow:hidden;background:#fff0f5}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;position:relative}
+.card-img .fallback{position:absolute;inset:0;display:grid;place-items:center;font-size:4rem}
+.card-img .age-badge{position:absolute;top:12px;right:12px;background:#fff;border-radius:999px;padding:.2rem .7rem;font-size:.78rem;font-weight:900;box-shadow:var(--shadow2)}
+.card-img .off-badge{position:absolute;top:12px;left:12px;background:#ff3b3b;color:#fff;border-radius:999px;padding:.2rem .7rem;font-size:.78rem;font-weight:900}
+.card-body{padding:1.1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.cat{font-size:.78rem;font-weight:800;color:var(--purple);background:#f1eaff;border-radius:999px;padding:.15rem .7rem;width:fit-content}
+.card h3{font-size:1.1rem;line-height:1.5}
+.desc{font-size:.88rem;color:var(--muted)}
+.meta{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:#5b5666;flex-wrap:wrap}
+.meta .stars{color:#f59e0b;font-weight:900}
+.price-row{display:flex;align-items:center;gap:.6rem;margin-top:.3rem}
+.price{font-size:1.4rem;font-weight:900;color:var(--pink-dark)}
+.old{color:#bbb;text-decoration:line-through;font-size:.95rem}
+.card-btns{display:flex;gap:.5rem;margin-top:auto;padding-top:.6rem}
+.card-btns .btn{flex:1}
+.add-btn{background:var(--ink);color:#fff}
+.add-btn:hover{background:#000}
+.order-btn{background:#25D366;color:#fff}
+.empty{background:#fff;border-radius:24px;padding:3rem 1rem;text-align:center;box-shadow:var(--shadow2);font-size:3rem}
+
+/* العنوان ومعلومات الموقع */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.info-card{background:#fff;border-radius:24px;padding:1.6rem;box-shadow:var(--shadow2)}
+.info-card h3{font-size:1.25rem;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.info-card ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.info-card li{background:#fff9f0;border-radius:14px;padding:.7rem .9rem;font-weight:700;display:flex;gap:.6rem;align-items:flex-start}
+.hours-table{width:100%;border-collapse:collapse;font-size:.95rem}
+.hours-table td{padding:.55rem .3rem;border-bottom:1px dashed #eee}
+.hours-table tr:last-child td{border:none}
+.map-box{background:linear-gradient(135deg,#e8f9ff,#f1eaff);border-radius:18px;padding:1.2rem;text-align:center;margin-top:1rem;border:2px dashed var(--sky)}
+.social-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+.social{background:#fff;border:2px solid #eee;border-radius:999px;padding:.5rem 1rem;font-weight:800;font-size:.9rem}
+
+/* آراء */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.review{background:#fff;border-radius:20px;padding:1.2rem;box-shadow:var(--shadow2);border-bottom:5px solid var(--yellow)}
+.review:nth-child(2){border-color:var(--pink)} .review:nth-child(3){border-color:var(--sky)}
+
+/* السلة */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:.25s;z-index:90}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;bottom:0;left:0;width:min(400px,92vw);background:#fff;z-index:100;transform:translateX(-105%);transition:.3s;display:flex;flex-direction:column;border-radius:0 24px 24px 0;box-shadow:var(--shadow2)}
+.drawer.open{transform:none}
+.drawer-head{padding:1.1rem 1.2rem;background:linear-gradient(135deg,var(--pink),var(--orange));color:#fff;display:flex;justify-content:space-between;align-items:center;border-radius:0 24px 0 0}
+.drawer-head button{background:rgba(255,255,255,.25);border:none;color:#fff;border-radius:10px;width:36px;height:36px;font-size:1.1rem;cursor:pointer}
+.drawer-items{flex:1;overflow:auto;padding:1rem;display:flex;flex-direction:column;gap:.7rem}
+.cart-item{display:flex;gap:.7rem;align-items:center;background:#fff9f0;border-radius:16px;padding:.6rem}
+.cart-item .em{font-size:1.6rem;background:#fff;border-radius:12px;width:56px;height:56px;display:grid;place-items:center;overflow:hidden;flex-shrink:0}
+.cart-item .em img{width:100%;height:100%;object-fit:cover}
+.cart-item b{font-size:.92rem;display:block;line-height:1.4}
+.qty{display:flex;align-items:center;gap:.4rem;margin-top:.3rem}
+.qty button{width:28px;height:28px;border-radius:8px;border:1px solid #ddd;background:#fff;font-weight:900;cursor:pointer}
+.drawer-foot{padding:1rem;border-top:2px dashed #ffd6e3}
+.total-row{display:flex;justify-content:space-between;font-weight:900;font-size:1.15rem;margin-bottom:.8rem}
+.toast{position:fixed;bottom:90px;right:50%;transform:translateX(50%) translateY(20px);background:var(--ink);color:#fff;padding:.7rem 1.3rem;border-radius:999px;font-weight:800;opacity:0;transition:.3s;z-index:200;pointer-events:none;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(50%) translateY(0)}
+
+/* ===== طرق الدفع ===== */
+.pay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.pay-card{background:#fff;border-radius:22px;padding:1.3rem 1rem;text-align:center;box-shadow:var(--shadow2);border-top:6px solid var(--green)}
+.pay-card:nth-child(2){border-color:var(--ink)}
+.pay-card:nth-child(3){border-color:var(--pink)}
+.pay-card:nth-child(4){border-color:var(--yellow)}
+.pay-card .ic{font-size:2.2rem}
+.pay-card h3{font-size:1.05rem;margin:.4rem 0}
+.pay-card p{font-size:.88rem;color:var(--muted)}
+.pay-badges{display:flex;gap:.45rem;justify-content:center;flex-wrap:wrap;margin-top:.7rem}
+.pb{display:inline-flex;align-items:center;gap:.25rem;border-radius:10px;padding:.3rem .7rem;font-weight:900;font-size:.85rem;line-height:1.6}
+.pb small{font-weight:700;font-size:.65rem;opacity:.85}
+.pb-mada{background:#3ba55d;color:#fff}
+.pb-visa{background:#fff;border:2px solid #1a1f71;color:#1a1f71;font-style:italic;letter-spacing:1px}
+.pb-mc{background:#fff;border:2px solid #eee}
+.pb-mc i{width:18px;height:18px;border-radius:50%;display:block}
+.pb-mc i:first-child{background:#eb001b}
+.pb-mc i:last-child{background:#f79e1b;opacity:.9;margin-right:-9px}
+.pb-apple{background:#000;color:#fff}
+.pb-stc{background:#4f008c;color:#fff}
+.pb-tabby{background:#3effc1;color:#1c1c1c}
+.pb-tamara{background:#f72c5b;color:#fff}
+.pb-cod{background:#e8fbef;border:2px solid var(--green);color:var(--green-dark)}
+.bank-card{background:linear-gradient(135deg,#fff,#f2f7ff);border:3px solid #bcd6ff;border-radius:24px;padding:1.5rem;margin-top:1.2rem;box-shadow:var(--shadow2)}
+.bank-card h3{font-size:1.2rem}
+.bank-card p{color:var(--muted);font-weight:700;font-size:.93rem}
+.bank-rows{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.9rem}
+.bank-rows>div{background:#fff;border-radius:14px;padding:.6rem .9rem;flex:1;min-width:200px}
+.bank-rows span{display:block;font-size:.8rem;color:var(--muted);font-weight:700}
+.bank-rows b{font-size:1rem}
+.iban{direction:ltr;display:inline-block;letter-spacing:1px}
+.pay-pick{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.8rem}
+.pay-pick label{background:#fff9f0;border:2px solid #eee;border-radius:12px;padding:.55rem .3rem;font-size:.85rem;font-weight:800;text-align:center;cursor:pointer}
+.pay-pick input{display:none}
+.pay-pick label:has(input:checked){border-color:var(--green);background:#e8fbef;color:var(--green-dark)}
+
+/* واتساب عائم */
+.float-wa{position:fixed;bottom:18px;left:18px;z-index:80;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;font-size:1.9rem;box-shadow:0 10px 25px rgba(37,211,102,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+footer{background:var(--ink);color:#fff;margin-top:2rem;border-radius:30px 30px 0 0;padding:2rem 0 1rem}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1.5rem}
+.foot-grid h4{margin-bottom:.7rem;color:var(--yellow)}
+.foot-grid a,.foot-grid p{display:block;color:#d9d5e3;font-size:.93rem;margin-bottom:.4rem}
+.copy{text-align:center;border-top:1px solid #3d3a4a;margin-top:1.5rem;padding-top:1rem;color:#a9a4bc;font-size:.85rem}
+
+/* ===== الجوال ===== */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .features{grid-template-columns:repeat(2,1fr)}
+  .pay-grid{grid-template-columns:repeat(2,1fr)}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .info-grid{grid-template-columns:1fr}
+  .reviews{grid-template-columns:1fr}
+  .links{display:none}
+  .menu-btn{display:block}
+  .mobile-menu.show{display:block}
+  .foot-grid{grid-template-columns:1fr}
+  .nav .btn-whatsapp span{display:none}
+  .nav .btn-whatsapp{padding:.7rem .9rem}
+}
+@media(max-width:560px){
+  .grid{grid-template-columns:1fr}
+  .features{grid-template-columns:1fr}
+  .pay-grid{grid-template-columns:1fr}
+  .card-img{height:160px}
+  .hero{padding-top:1.5rem}
+  select{flex:1}
+}
+</style>
+</head>
+<body>
+
+<div class="bubbles" id="bubbles"></div>
+
+<div class="topbar">🎉 توصيل سريع داخل القصيم (بريدة - عنيزة - الرس) 🚚 + تغليف هدايا مجاني 🎁</div>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">
+      <span class="logo-mark"><img src="images/logo.svg" alt="شعار جزيرة الأطفال"></span>
+      <span>جزيرة الأطفال<small>متجر الألعاب الأول في القصيم 🧸</small></span>
+    </a>
+    <nav class="links">
+      <a href="#home">الرئيسية</a>
+      <a href="#shop">الألعاب</a>
+      <a href="#pay">الدفع 💳</a>
+      <a href="#address">عنواننا</a>
+      <a href="#info">معلومات المتجر</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="toggleCart(true)" aria-label="السلة">🛒<span class="cart-count" id="cartCount">0</span></button>
+      <a class="btn btn-whatsapp btn-small" id="navWa" href="#" target="_blank">💬 <span>تواصل واتساب</span></a>
+      <button class="menu-btn" onclick="document.getElementById('mmenu').classList.toggle('show')">☰</button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mmenu">
+    <a href="#home">🏠 الرئيسية</a>
+    <a href="#shop">🧸 الألعاب</a>
+    <a href="#pay">💳 طرق الدفع</a>
+    <a href="#address">📍 عنواننا</a>
+    <a href="#info">ℹ️ معلومات المتجر</a>
+  </div>
+</header>
+
+<!-- البطل -->
+<div class="hero container" id="home">
+  <div class="hero-grid">
+    <div>
+      <span class="badge-pill">📍 القصيم - بريدة | توصيل لجميع المحافظات 🚚</span>
+      <h1>أهلاً بكم في <span class="hl1">جزيرة</span> <span class="hl2">الأطفال</span> <span class="hl3">🎈</span><br>عالم الفرح واللعب!</h1>
+      <p>أكبر تشكيلة ألعاب آمنة وتعليمية ومرحة لأطفالكم، مصنفة حسب العمر مع أسعار واضحة، وطلب سهل بضغطة زر عبر الواتساب. فرّح طفلك اليوم! 🥳</p>
+      <div class="hero-btns">
+        <a href="#shop" class="btn btn-pink">🧸 تسوق الألعاب الآن</a>
+        <a href="#" id="heroWa" target="_blank" class="btn btn-whatsapp">💬 اطلب عبر واتساب</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>+500 🎁</b><span>لعبة متوفرة</span></div>
+        <div class="stat"><b>⭐ 4.9</b><span>تقييم الأهالي</span></div>
+        <div class="stat"><b>🚚 نفس اليوم</b><span>توصيل بالقصيم</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-art-inner">
+        <div class="toy-row">🧸 🪁 🛴 🎨 🚗</div>
+        <div class="island"><img src="images/logo.svg" alt="شعار جزيرة الأطفال" style="width:130px;height:130px;filter:drop-shadow(0 12px 12px rgba(0,0,0,.15))"></div>
+        <div style="font-weight:900;font-size:1.3rem">جزيرة الأطفال في القصيم 🌴</div>
+        <div style="color:var(--muted);font-weight:700">ألعاب • هدايا • فرح • تعليم</div>
+        <div class="hero-card"><span class="ic">✅</span><div><b>ألعاب أصلية وآمنة 100%</b><br><small style="color:var(--muted)">مطابقة للمواصفات ومناسبة لكل عمر</small></div></div>
+        <div class="hero-card"><span class="ic" style="background:#fff3d6">🚚</span><div><b>توصيل سريع داخل القصيم</b><br><small style="color:var(--muted)">بريدة، عنيزة، الرس، البدائع والمزيد</small></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="marquee"><div>🧸 جزيرة الأطفال 🎈 توصيل سريع بالقصيم 🎁 تغليف هدايا مجاني ⭐ ألعاب أصلية وآمنة 🧸 جزيرة الأطفال 🎈 توصيل سريع بالقصيم 🎁 تغليف هدايا مجاني ⭐ ألعاب أصلية وآمنة &nbsp;&nbsp;</div></div>
+
+<!-- المميزات -->
+<section class="container" style="padding-bottom:0">
+  <div class="features">
+    <div class="feature"><div class="ic">🛡️</div><h3>آمنة 100%</h3><p>ألعاب أصلية وخالية من المواد الضارة</p></div>
+    <div class="feature"><div class="ic">🚚</div><h3>توصيل بالقصيم</h3><p>نفس اليوم داخل بريدة وعنيزة</p></div>
+    <div class="feature"><div class="ic">🎁</div><h3>تغليف هدايا مجاني</h3><p>نجهز هديتك بشكل يفرّح طفلك</p></div>
+    <div class="feature"><div class="ic">💬</div><h3>طلب عبر واتساب</h3><p>اطلب بضغطة زر بدون تعقيد</p></div>
+  </div>
+</section>
+
+<!-- المتجر -->
+<section class="container" id="shop">
+  <div class="sec-head">
+    <h2>🧸 قائمة الألعاب والأسعار</h2>
+    <p>كل الألعاب مصنفة حسب العمر المناسب + السعر بالريال السعودي. اختر لعبتك واضغط واتساب للطلب مباشرة!</p>
+  </div>
+
+  <div class="filters">
+    <div class="search-row">
+      <div class="search-box">🔍<input id="search" placeholder="ابحث عن لعبة... (مثال: ليجو، دمية، سيارة)" oninput="render()"></div>
+      <select id="cat" onchange="render()">
+        <option value="">كل التصنيفات 🎪</option>
+        <option>ألعاب تعليمية 📚</option>
+        <option>دمى ومجسمات 🧸</option>
+        <option>سيارات ودراجات 🚗</option>
+        <option>تركيب وليجو 🧱</option>
+        <option>ألعاب خارجية 🛝</option>
+        <option>ألعاب إلكترونية 🎮</option>
+      </select>
+      <select id="sort" onchange="render()">
+        <option value="">ترتيب: المميز ⭐</option>
+        <option value="cheap">السعر: من الأرخص 💰</option>
+        <option value="exp">السعر: من الأغلى 💎</option>
+      </select>
+    </div>
+    <div class="age-tabs">
+      <button class="age-tab active" data-age="" onclick="setAge('',this)">كل الأعمار 👶🧒</button>
+      <button class="age-tab" data-age="0-2" onclick="setAge('0-2',this)">🍼 عمر 0 - 2</button>
+      <button class="age-tab" data-age="3-5" onclick="setAge('3-5',this)">🎨 عمر 3 - 5</button>
+      <button class="age-tab" data-age="6-8" onclick="setAge('6-8',this)">⚽ عمر 6 - 8</button>
+      <button class="age-tab" data-age="9+" onclick="setAge('9+',this)">🚀 عمر +9</button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</section>
+
+<!-- طرق الدفع -->
+<section class="container" id="pay" style="padding-top:1rem">
+  <div class="sec-head">
+    <h2>💳 طرق الدفع المتاحة</h2>
+    <p>ادفع بالطريقة اللي تناسبك — كاش، شبكة، جوال، أو قسّطها بدون فوائد</p>
+  </div>
+  <div class="pay-grid">
+    <div class="pay-card">
+      <div class="ic">💳</div><h3>مدى والبطاقات</h3>
+      <p>ادفع بمدى، فيزا أو ماستركارد عبر رابط دفع آمن يوصلك على واتساب</p>
+      <div class="pay-badges">
+        <span class="pb pb-mada">مدى <small>mada</small></span>
+        <span class="pb pb-visa">VISA</span>
+        <span class="pb pb-mc"><i></i><i></i></span>
+      </div>
+    </div>
+    <div class="pay-card">
+      <div class="ic">📱</div><h3>Apple Pay و STC Pay</h3>
+      <p>ادفع بجوالك بسرعة وأمان بدون ما تدخل بيانات بطاقتك</p>
+      <div class="pay-badges">
+        <span class="pb pb-apple"> Apple Pay</span>
+        <span class="pb pb-stc">stc pay</span>
+      </div>
+    </div>
+    <div class="pay-card">
+      <div class="ic">🟣</div><h3>تقسيط تابي وتمارا</h3>
+      <p>قسّم مشترياتك على 4 دفعات بدون فوائد وبدون دفعة أولى</p>
+      <div class="pay-badges">
+        <span class="pb pb-tabby">تابي <small>tabby</small></span>
+        <span class="pb pb-tamara">تمارا</span>
+      </div>
+    </div>
+    <div class="pay-card">
+      <div class="ic">💵</div><h3>عند الاستلام</h3>
+      <p>ادفع كاش أو بالشبكة عند وصول مندوبنا لباب بيتك داخل القصيم</p>
+      <div class="pay-badges"><span class="pb pb-cod">💵 كاش / شبكة</span></div>
+    </div>
+  </div>
+  <div class="bank-card" style="text-align:center">
+    <h3>💬 تبغى تدفع تحويل بنكي؟</h3>
+    <p>راسلنا واتساب وبنرسل لك بيانات التحويل ونأكد طلبك فوراً ⚡</p>
+    <a class="btn btn-whatsapp" style="margin-top:.6rem" id="payWa" href="#" target="_blank">💬 اطلب بيانات التحويل</a>
+  </div>
+</section>
+
+<!-- العنوان -->
+<section class="container" id="address" style="padding-top:1rem">
+  <div class="sec-head">
+    <h2>📍 عنواننا في القصيم</h2>
+    <p>زورونا في المتجر أو اطلبوا توصيل لباب البيت</p>
+  </div>
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>🏪 موقع المتجر</h3>
+      <ul>
+        <li>📍 <span><b>جزيرة الأطفال</b> - بريدة، طريق الملك عبدالله، بجانب العثيم مول، منطقة القصيم، المملكة العربية السعودية</span></li>
+        <li>🕘 <span>الدوام: يومياً من 9 صباحاً حتى 11 مساءً (الجمعة من 4 عصراً)</span></li>
+        <li>📞 <span>الهاتف / واتساب: <b id="phoneText">0550000000</b> - اضغط زر الواتساب للتواصل الفوري</span></li>
+        <li>🚚 <span>نوصل لـ: بريدة، عنيزة، الرس، البدائع، البكيرية، المذنب وجميع محافظات القصيم</span></li>
+      </ul>
+      <div class="map-box">
+        <div style="font-size:2.5rem">🗺️📍</div>
+        <b>تجدنا بسهولة على خرائط قوقل: ابحث عن "جزيرة الأطفال بريدة"</b><br>
+        <a class="btn btn-pink btn-small" style="margin-top:.6rem" target="_blank" href="https://maps.google.com/?q=Buraidah+Qassim">افتح الخريطة 🧭</a>
+      </div>
+    </div>
+    <div class="info-card" style="background:linear-gradient(135deg,#fff,#fff6f9);border:3px solid #ffd6e3">
+      <h3>💬 تواصل معنا الآن</h3>
+      <p style="color:var(--muted);font-weight:700">عندك استفسار عن لعبة؟ تبغى هدية لطفلك؟ راسلنا واتساب ونرد عليك بسرعة! ⚡</p>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin:1rem 0">
+        <a href="#" id="bigWa" target="_blank" class="btn btn-whatsapp" style="flex:1">💬 مراسلة واتساب</a>
+        <a href="tel:0550000000" class="btn btn-outline">📞 اتصال</a>
+      </div>
+      <div class="social-row">
+        <span class="social">📸 انستقرام: @jazirat.alatfal</span>
+        <span class="social">🎵 تيك توك: @jazirat.alatfal</span>
+        <span class="social">🐦 إكس: @jazirat_alatfal</span>
+      </div>
+      <div style="background:#e8fbef;border-radius:14px;padding:.8rem;margin-top:1rem;font-weight:700">🎁 عرض هذا الأسبوع: خصم حتى 30% على الألعاب التعليمية + تغليف مجاني!</div>
+    </div>
+  </div>
+</section>
+
+<!-- معلومات المتجر -->
+<section class="container" id="info" style="padding-top:1rem">
+  <div class="sec-head">
+    <h2>ℹ️ معلومات المتجر</h2>
+    <p>كل اللي تحتاج تعرفه عن جزيرة الأطفال</p>
+  </div>
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>🌟 من نحن؟</h3>
+      <p style="color:#5b5666;font-weight:600">جزيرة الأطفال متجر سعودي في قلب القصيم (بريدة)، متخصص في ألعاب الأطفال من عمر الرضاعة حتى 12 سنة. نختار ألعابنا بعناية: آمنة، أصلية، تنمي ذكاء طفلك وتزرع الفرح. هدفنا أن تكون كل زيارة أو طلب تجربة سعيدة للأهل والأطفال! 🥰</p>
+      <table class="hours-table" style="margin-top:1rem">
+        <tr><td>🛍️ طرق الدفع</td><td><b>كاش - مدى - Apple Pay - تابي وتمارا</b> <a href="#pay" style="color:var(--pink-dark)">(التفاصيل 💳)</a></td></tr>
+        <tr><td>🚚 التوصيل</td><td><b>داخل بريدة 15 ر.س (مجاني فوق 200 ر.س)</b></td></tr>
+        <tr><td>🔄 الاستبدال</td><td><b>خلال 7 أيام بحالته الأصلية</b></td></tr>
+        <tr><td>🎁 الهدايا</td><td><b>تغليف + كرت إهداء مجاني</b></td></tr>
+      </table>
+    </div>
+    <div class="info-card">
+      <h3>⭐ وش قالوا عنا أهالي القصيم؟</h3>
+      <div class="reviews" style="grid-template-columns:1fr">
+        <div class="review">⭐⭐⭐⭐⭐<br><b>"أفضل محل ألعاب ببريدة! أسعار واضحة وتوصيل سريع."</b><br><small>— أم فهد، بريدة 👩‍👧</small></div>
+        <div class="review">⭐⭐⭐⭐⭐<br><b>"طلبت عبر الواتساب ووصلني بنفس اليوم مغلف هدية. شكراً!"</b><br><small>— أبو ليان، عنيزة 👨‍👧</small></div>
+        <div class="review">⭐⭐⭐⭐⭐<br><b>"تشكيلة الليجو والتعليمية عندهم ممتازة وأصلية."</b><br><small>— أم عبدالله، الرس 👩‍👦</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <h4><img src="images/logo.svg" alt="شعار جزيرة الأطفال" style="width:28px;height:28px;vertical-align:-6px;border-radius:8px"> جزيرة الأطفال</h4>
+        <p>متجر ألعاب الأطفال في القصيم - بريدة. فرح طفلك يبدأ من هنا! 🧸🎈</p>
+        <p>📍 بريدة، طريق الملك عبدالله، القصيم</p>
+        <p>📞 0550000000 | 💬 واتساب متاح يومياً</p>
+        <div class="pay-badges" style="justify-content:flex-start;margin-top:.6rem">
+          <span class="pb pb-mada">مدى</span>
+          <span class="pb pb-visa">VISA</span>
+          <span class="pb pb-apple"> Pay</span>
+          <span class="pb pb-tabby">تابي</span>
+        </div>
+      </div>
+      <div>
+        <h4>🔗 روابط سريعة</h4>
+        <a href="#home">الرئيسية</a>
+        <a href="#shop">تسوق الألعاب</a>
+        <a href="#pay">طرق الدفع 💳</a>
+        <a href="#address">العنوان والتوصيل</a>
+        <a href="#info">معلومات المتجر</a>
+      </div>
+      <div>
+        <h4>🕘 الدوام</h4>
+        <p>السبت - الخميس: 9 صباحاً - 11 مساءً</p>
+        <p>الجمعة: 4 عصراً - 11 مساءً</p>
+        <a class="btn btn-whatsapp btn-small" style="margin-top:.5rem" id="footWa" href="#" target="_blank">💬 اطلب الآن</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 جزيرة الأطفال - القصيم 🎈 جميع الحقوق محفوظة | صُنع بحب لأطفال القصيم 💖 | الصور: Unsplash 📷</div>
+  </div>
+</footer>
+
+<a class="float-wa" id="floatWa" href="#" target="_blank" aria-label="واتساب">💬</a>
+
+<div class="overlay" id="overlay" onclick="toggleCart(false)"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head"><b>🛒 سلة التسوق</b><button onclick="toggleCart(false)">✕</button></div>
+  <div class="drawer-items" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div style="font-weight:900;margin-bottom:.4rem">💳 طريقة الدفع:</div>
+    <div class="pay-pick">
+      <label><input type="radio" name="pay" value="الدفع عند الاستلام 💵" checked><span>💵 عند الاستلام</span></label>
+      <label><input type="radio" name="pay" value="مدى / بطاقة بنكية 💳"><span>💳 مدى وشبكة</span></label>
+      <label><input type="radio" name="pay" value="Apple Pay 📱"><span>📱 Apple Pay</span></label>
+      <label><input type="radio" name="pay" value="تقسيط تابي / تمارا 🟣"><span>🟣 تابي وتمارا</span></label>
+    </div>
+    <div class="total-row"><span>الإجمالي:</span><span id="total">0 ر.س</span></div>
+    <button class="btn btn-whatsapp" style="width:100%" onclick="checkout()">💬 إتمام الطلب عبر واتساب</button>
+    <button class="btn btn-outline btn-small" style="width:100%;margin-top:.5rem" onclick="clearCart()">🗑️ تفريغ السلة</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ======= ⚙️ إعدادات المتجر - غيّري الرقم هنا فقط ======= */
+const WHATSAPP_NUMBER = "966550000000"; // ← ضعي رقم واتساب المتجر هنا بالصيغة الدولية بدون +
+const STORE_NAME = "جزيرة الأطفال - القصيم";
+
+function waLink(msg){ return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg); }
+["navWa","heroWa","bigWa","footWa","floatWa","payWa"].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) el.href = waLink("مرحباً متجر " + STORE_NAME + " 👋 أبغى استفسر عن الألعاب المتوفرة 🧸");
+});
+
+/* ======= 🎮 قائمة الألعاب ======= */
+const PRODUCTS = [
+  {id:1, name:"ليجو المدينة الكبيرة 🏙️", cat:"تركيب وليجو 🧱", age:"6-8", price:149, old:199, emoji:"🧱", img:"images/lego.jpg", bg:"linear-gradient(135deg,#ffe3ee,#fff3c4)", tag:"خصم 25%", stars:"⭐⭐⭐⭐⭐", desc:"500 قطعة تنمي الإبداع والتركيز، مناسبة من 6 سنوات."},
+  {id:2, name:"دمية الأميرة الناطقة 👸", cat:"دمى ومجسمات 🧸", age:"3-5", price:89, old:0, emoji:"👸", img:"images/doll.jpg", bg:"linear-gradient(135deg,#f1eaff,#ffe3ee)", tag:"الأكثر مبيعاً 🔥", stars:"⭐⭐⭐⭐⭐", desc:"تتكلم وتغني، شعر ناعم وملابس جميلة، آمنة للبنات."},
+  {id:3, name:"سيارة تحكم عن بعد 🚗", cat:"سيارات ودراجات 🚗", age:"6-8", price:179, old:229, emoji:"🚗", img:"images/rc-car.jpg", bg:"linear-gradient(135deg,#dcf5ff,#e9ffe9)", tag:"خصم", stars:"⭐⭐⭐⭐", desc:"سرعة عالية وبطارية قابلة للشحن + ريموت 2.4G."},
+  {id:4, name:"مكعبات تعليمية للحروف 🔤", cat:"ألعاب تعليمية 📚", age:"0-2", price:59, old:0, emoji:"🔤", img:"images/abc.jpg", bg:"linear-gradient(135deg,#fff3c4,#e9ffe9)", tag:"جديد ✨", stars:"⭐⭐⭐⭐⭐", desc:"مكعبات عربية وإنجليزية آمنة للرضع، تنمي النطق."},
+  {id:5, name:"مطبخ الشيف الصغير 👩‍🍳", cat:"دمى ومجسمات 🧸", age:"3-5", price:199, old:259, emoji:"🍳", img:"images/kitchen.jpg", bg:"linear-gradient(135deg,#ffe8d6,#fff3c4)", tag:"خصم 23%", stars:"⭐⭐⭐⭐⭐", desc:"مطبخ متكامل مع أصوات وإضاءة وأدوات طبخ."},
+  {id:6, name:"سكوتر التوازن للأطفال 🛴", cat:"ألعاب خارجية 🛝", age:"3-5", price:159, old:0, emoji:"🛴", img:"images/scooter.jpg", bg:"linear-gradient(135deg,#dcf5ff,#fff3c4)", tag:"مميز", stars:"⭐⭐⭐⭐", desc:"3 عجلات مضيئة، يتحمل حتى 50 كجم، آمن وقوي."},
+  {id:7, name:"لعبة البازل الخشبي 🧩", cat:"ألعاب تعليمية 📚", age:"3-5", price:45, old:65, emoji:"🧩", img:"images/puzzle.jpg", bg:"linear-gradient(135deg,#e9ffe9,#dcf5ff)", tag:"خصم", stars:"⭐⭐⭐⭐⭐", desc:"بازل خشب طبيعي بأشكال الحيوانات، يقوي التركيز."},
+  {id:8, name:"دراجة أطفال مع خوذة 🚲", cat:"سيارات ودراجات 🚗", age:"6-8", price:349, old:429, emoji:"🚲", img:"images/bike.jpg", bg:"linear-gradient(135deg,#ffe3ee,#dcf5ff)", tag:"عرض قوي 💪", stars:"⭐⭐⭐⭐⭐", desc:"مقاس 16 إنش + عجلات مساعدة وخوذة هدية."},
+  {id:9, name:"سيت ألعاب الفيديو للعائلة 🎮", cat:"ألعاب إلكترونية 🎮", age:"9+", price:189, old:0, emoji:"🎮", img:"images/gamepad.jpg", bg:"linear-gradient(135deg,#e9e2ff,#dcf5ff)", tag:"جديد ✨", stars:"⭐⭐⭐⭐", desc:"يدا تحكم + ألعاب ممتعة تجمع العائلة حول الشاشة."},
+  {id:10, name:"زحليقة ونطاطة الحديقة 🛝", cat:"ألعاب خارجية 🛝", age:"3-5", price:499, old:649, emoji:"🛝", img:"images/slide.jpg", bg:"linear-gradient(135deg,#fff3c4,#ffe3ee)", tag:"خصم كبير", stars:"⭐⭐⭐⭐⭐", desc:"زحليقة + مرجيحة للحدائق والاستراحات، تركيب مجاني ببريدة."},
+  {id:11, name:"روبوت ذكي يتكلم عربي 🤖", cat:"ألعاب إلكترونية 🎮", age:"9+", price:249, old:299, emoji:"🤖", img:"images/robot.jpg", bg:"linear-gradient(135deg,#dcf5ff,#f1eaff)", tag:"الأذكى 🧠", stars:"⭐⭐⭐⭐⭐", desc:"يرد بالعربي، يرقص ويغني، ويعلم البرمجة المبسطة."},
+  {id:12, name:"عضاضة وألعاب الرضع 👶", cat:"ألعاب تعليمية 📚", age:"0-2", price:39, old:0, emoji:"🍼", img:"images/baby.jpg", bg:"linear-gradient(135deg,#ffe3ee,#e9ffe9)", tag:"للرضع", stars:"⭐⭐⭐⭐⭐", desc:"طقم 6 قطع سيليكون آمن 100% يخفف آلام التسنين."},
+];
+
+let currentAge = "";
+function setAge(v, btn){
+  currentAge = v;
+  document.querySelectorAll(".age-tab").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  render();
+}
+
+const AGE_LABEL = {"0-2":"🍼 0 - 2 سنوات","3-5":"🎨 3 - 5 سنوات","6-8":"⚽ 6 - 8 سنوات","9+":"🚀 +9 سنوات"};
+
+function render(){
+  const q = document.getElementById("search").value.trim();
+  const cat = document.getElementById("cat").value;
+  const sort = document.getElementById("sort").value;
+  let list = PRODUCTS.filter(p =>
+    (!currentAge || p.age===currentAge) &&
+    (!cat || p.cat===cat) &&
+    (!q || p.name.includes(q) || p.desc.includes(q))
+  );
+  if(sort==="cheap") list = [...list].sort((a,b)=>a.price-b.price);
+  if(sort==="exp") list = [...list].sort((a,b)=>b.price-a.price);
+  const grid = document.getElementById("grid");
+  if(!list.length){
+    grid.innerHTML = `<div class="empty" style="grid-column:1/-1">😢<br><b style="font-size:1.1rem">لا توجد ألعاب مطابقة، جربي بحث آخر!</b><br><button class="btn btn-pink btn-small" style="margin-top:.8rem" onclick="resetF()">عرض كل الألعاب 🧸</button></div>`;
+    return;
+  }
+  grid.innerHTML = list.map(p=>`
+    <article class="card">
+      <div class="card-img">
+        <span class="fallback">${p.emoji}</span>
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.remove()">
+        <span class="age-badge">${AGE_LABEL[p.age]}</span>
+        ${p.old?`<span class="off-badge">-${Math.round((1-p.price/p.old)*100)}%</span>`:""}
+      </div>
+      <div class="card-body">
+        <span class="cat">${p.cat}</span>
+        <h3>${p.name}</h3>
+        <div class="meta"><span class="stars">${p.stars}</span><span>• ${p.tag}</span></div>
+        <p class="desc">${p.desc}</p>
+        <div class="price-row"><span class="price">${p.price} ر.س</span>${p.old?`<span class="old">${p.old} ر.س</span>`:""}</div>
+        <div class="card-btns">
+          <button class="btn add-btn btn-small" onclick="addToCart(${p.id})">🛒 أضف للسلة</button>
+          <a class="btn order-btn btn-small" target="_blank" href="${waLink("مرحباً " + STORE_NAME + " 👋\nأبغى أطلب:\n🧸 " + p.name + "\n💰 السعر: " + p.price + " ر.س\nهل متوفرة؟")}">💬 واتساب</a>
+        </div>
+      </div>
+    </article>`).join("");
+}
+function resetF(){
+  document.getElementById("search").value="";document.getElementById("cat").value="";document.getElementById("sort").value="";
+  currentAge="";document.querySelectorAll(".age-tab").forEach((b,i)=>b.classList.toggle("active",i===0));render();
+}
+
+/* ======= 🛒 السلة ======= */
+let cart = {};
+function addToCart(id){
+  cart[id]=(cart[id]||0)+1; updateCart();
+  const p = PRODUCTS.find(x=>x.id===id);
+  toast("تمت إضافة " + p.name + " للسلة 🛒🎉");
+}
+function changeQty(id,d){
+  cart[id]=(cart[id]||0)+d;
+  if(cart[id]<=0) delete cart[id];
+  updateCart();
+}
+function clearCart(){ cart={}; updateCart(); }
+function cartTotalCount(){ return Object.values(cart).reduce((a,b)=>a+b,0); }
+function cartTotalPrice(){ return Object.entries(cart).reduce((s,[id,q])=>{const p=PRODUCTS.find(x=>x.id==id);return s+p.price*q;},0); }
+function updateCart(){
+  document.getElementById("cartCount").textContent = cartTotalCount();
+  document.getElementById("total").textContent = cartTotalPrice() + " ر.س";
+  const box = document.getElementById("cartItems");
+  const ids = Object.keys(cart);
+  if(!ids.length){ box.innerHTML = `<div style="text-align:center;color:var(--muted);padding:2rem 0"><div style="font-size:3rem">🛒</div><b>سلتك فاضية!</b><br>اختاري ألعاب حلوة من المتجر 🧸</div>`; return; }
+  box.innerHTML = ids.map(id=>{
+    const p = PRODUCTS.find(x=>x.id==id); const q = cart[id];
+    return `<div class="cart-item"><div class="em"><img src="${p.img}" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode('${p.emoji}'))"></div>
+      <div style="flex:1"><b>${p.name}</b><small>${p.price} ر.س × ${q} = <b>${p.price*q} ر.س</b></small>
+      <div class="qty"><button onclick="changeQty(${id},-1)">−</button><b>${q}</b><button onclick="changeQty(${id},1)">+</button></div></div>
+      <button onclick="changeQty(${id},-999)" style="border:none;background:none;font-size:1.1rem;cursor:pointer">🗑️</button></div>`;
+  }).join("");
+}
+function toggleCart(open){
+  document.getElementById("drawer").classList.toggle("open",open);
+  document.getElementById("overlay").classList.toggle("show",open);
+}
+function checkout(){
+  const ids = Object.keys(cart);
+  if(!ids.length){ toast("سلتك فاضية! أضيفي ألعاب أولاً 🧸"); return; }
+  let msg = "طلب جديد من " + STORE_NAME + " 🎈\n\n";
+  ids.forEach(id=>{const p=PRODUCTS.find(x=>x.id==id); msg += "🧸 " + p.name + " × " + cart[id] + " = " + (p.price*cart[id]) + " ر.س\n";});
+  const payMethod = (document.querySelector('input[name="pay"]:checked') || {}).value || "الدفع عند الاستلام 💵";
+  msg += "\n💰 الإجمالي: " + cartTotalPrice() + " ر.س\n💳 طريقة الدفع: " + payMethod + "\n📍 التوصيل داخل القصيم\nشكراً! ✅";
+  window.open(waLink(msg),"_blank");
+}
+function toast(t){
+  const el=document.getElementById("toast"); el.textContent=t; el.classList.add("show");
+  clearTimeout(el._h); el._h=setTimeout(()=>el.classList.remove("show"),2200);
+}
+
+/* فقاعات مرحة */
+(function(){
+  const box=document.getElementById("bubbles"); const colors=["#ff5d8f","#ffc93c","#4fc3f7","#8b5cf6","#22c55e"];
+  for(let i=0;i<18;i++){const s=document.createElement("span");const sz=8+Math.random()*22;
+    s.style.cssText=`width:${sz}px;height:${sz}px;right:${Math.random()*100}%;background:${colors[i%5]};animation-duration:${7+Math.random()*8}s;animation-delay:${Math.random()*6}s`;
+    box.appendChild(s);}
+})();
+
+render(); updateCart();
+document.getElementById("phoneText").textContent = "0" + WHATSAPP_NUMBER.slice(3);
+</script>
+</body>
+</html>
