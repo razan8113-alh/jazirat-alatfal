@@ -17,4 +17,6 @@
 - الصور: داخل مجلد `images/` (مصدرها Unsplash 📷)
 
 ## 🌐 النشر
-الموقع منشور على GitHub Pages.
+الموقع منشور على GitHub Pages:
+
+**https://razan8113-alh.github.io/jazirat-alatfal/** 🎈
